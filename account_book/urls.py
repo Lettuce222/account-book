@@ -12,4 +12,5 @@ urlpatterns = [
     path('update_done/', views.update_done, name='update_done'),
     path('delete/<int:pk>/', views.AccountBookDeleteView.as_view(), name='account_book_delete'),
     path('delete_done/', views.delete_done, name='delete_done'),
+    path('circle/', views.show_circle_graph, name='account_book_circle'),
 ]
