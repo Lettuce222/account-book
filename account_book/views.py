@@ -41,7 +41,7 @@ def show_circle_graph(request):
     for category in Category.objects.all():
         category_total = AccountBook.objects.filter(category__category_name=category.category_name).aggregate(sum=models.Sum('money'))['sum']
         category_total = 0 if category_total is None else category_total
-        category_total_dict[category.category_name] = int(100 * category_total/total)
+        category_total_dict[category.category_name] = int(100 * category_total/total) if total != 0 else 0
     
     return render(request, 'account_book/accountbook_circle.html',{
         'category_dict': category_total_dict,
